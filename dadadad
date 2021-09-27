@@ -1803,7 +1803,14 @@ do
 		dropdown:GetPropertyChangedSignal("Size"):Connect(function()
 			self:Resize()
 		end)
-		
+      function DropFunc:Clear()
+         for i,v in next, DropItemHolder:GetChildren() do
+            if v.Name == "Item" then
+              v:Destroy()
+            end
+             end
+   end
+   end
 		return dropdown
 	end
 	
@@ -2166,14 +2173,7 @@ do
 			frame.ScrollBarImageTransparency = 1
 		end
 	end
-   function DropFunc:Clear()
-      for i,v in next, DropItemHolder:GetChildren() do
-         if v.Name == "Item" then
-           v:Destroy()
-         end
-          end
-end
-end
+
 
 print("dino was here :\)")
 return library
